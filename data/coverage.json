@@ -1,0 +1,31 @@
+{
+  "mcp_name": "Netherlands Farm Grants MCP",
+  "jurisdiction": "NL",
+  "build_date": "2026-04-04",
+  "status": "populated",
+  "grants": 10,
+  "grant_items": 13,
+  "stacking_rules": 10,
+  "application_guidance_steps": 19,
+  "fts_entries": 28,
+  "categories": {
+    "capital": 4,
+    "revenue": 1,
+    "tax_credit": 1,
+    "loan_subsidy": 1,
+    "buyout": 2,
+    "guarantee": 1
+  },
+  "grant_ids": [
+    "isde",
+    "sde-plus-plus",
+    "jola",
+    "mit",
+    "wbso",
+    "regeling-groenprojecten",
+    "stoppersregeling",
+    "mgo-veehouderijen",
+    "sbv",
+    "borgstellingsfonds"
+  ]
+}

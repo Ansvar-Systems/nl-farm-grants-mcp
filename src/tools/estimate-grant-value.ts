@@ -113,7 +113,7 @@ export function handleEstimateGrantValue(db: Database, args: EstimateArgs) {
     match_funding_pct: grant.match_funding_pct,
     match_funding_required: matchFundingRequired,
     total_project_cost: totalProjectCost,
-    currency: 'GBP',
+    currency: 'EUR',
     note: capped
       ? `Total exceeds the grant cap of ${grant.max_grant_value}. Grant value has been capped.`
       : undefined,

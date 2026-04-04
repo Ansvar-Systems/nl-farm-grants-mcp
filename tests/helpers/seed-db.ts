@@ -7,100 +7,95 @@ export function createSeededDatabase(dbPath: string): Database {
   db.run(
     `INSERT INTO grants (id, name, grant_type, authority, budget, status, open_date, close_date, description, eligible_applicants, match_funding_pct, max_grant_value, jurisdiction)
      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-    ['fetf-2026-productivity', 'FETF 2026 - Productivity', 'capital', 'RPA', '£50 million', 'open', '2026-02-05', '2026-04-28', 'Farming Equipment and Technology Fund 2026 -- Productivity theme.', 'Farmers in England with BPS-eligible land.', 0, 50000, 'GB']
+    ['isde', 'ISDE (Investeringssubsidie Duurzame Energie en Energiebesparing)', 'capital', 'RVO', 'Doorlopend budget', 'rolling', null, null, 'Subsidie voor warmtepompen, zonneboilers en isolatie.', 'Particulieren, VvE\'s, verhuurders en zakelijke gebruikers.', 0, null, 'NL']
   );
   db.run(
     `INSERT INTO grants (id, name, grant_type, authority, budget, status, open_date, close_date, description, eligible_applicants, match_funding_pct, max_grant_value, jurisdiction)
      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-    ['fetf-2026-slurry', 'FETF 2026 - Slurry', 'capital', 'RPA', 'Part of £50m FETF', 'open', '2026-02-05', '2026-04-28', 'FETF 2026 Slurry theme.', 'Livestock farmers in England.', 0, 50000, 'GB']
+    ['sde-plus-plus', 'SDE++ (Stimulering Duurzame Energieproductie)', 'revenue', 'RVO', 'Ca. 8 miljard EUR', 'upcoming', '2026-06-01', '2026-06-30', 'Exploitatiesubsidie voor hernieuwbare energie.', 'Bedrijven en instellingen.', 0, null, 'NL']
   );
   db.run(
     `INSERT INTO grants (id, name, grant_type, authority, budget, status, open_date, close_date, description, eligible_applicants, match_funding_pct, max_grant_value, jurisdiction)
      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-    ['ewco', 'England Woodland Creation Offer', 'revenue+capital', 'Forestry Commission', 'Ongoing', 'rolling', null, null, 'Woodland creation payments.', 'Landowners in England.', 0, null, 'GB']
+    ['jola', 'Subsidie Jonge Landbouwers (JOLA)', 'capital', 'RVO', 'Jaarlijks vastgesteld', 'upcoming', '2026-06-01', '2026-07-15', 'Investeringssubsidie voor jonge landbouwers.', 'Landbouwers jonger dan 41 jaar.', 70, 6000, 'NL']
   );
   db.run(
     `INSERT INTO grants (id, name, grant_type, authority, budget, status, open_date, close_date, description, eligible_applicants, match_funding_pct, max_grant_value, jurisdiction)
      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-    ['capital-grants-2026', 'Capital Grants 2026', 'capital', 'RPA', '£225 million', 'upcoming', '2026-07-01', null, 'Larger capital grants.', 'Farm businesses in England.', 60, 500000, 'GB']
+    ['stoppersregeling', 'Stoppersregeling (Lbv / Lbv-plus)', 'buyout', 'RVO / Ministerie van LNV', 'Ca. 1,5 miljard EUR', 'open', '2026-01-15', null, 'Uitkoopregeling piekbelasters nabij Natura 2000.', 'Veehouderijen als piekbelaster aangemerkt.', 0, null, 'NL']
   );
 
-  // Grant items
+  // Grant items (ISDE warmtepompen + isolatie)
   db.run(
     `INSERT INTO grant_items (id, grant_id, item_code, name, description, specification, grant_value, grant_unit, category, score, jurisdiction)
      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-    ['fetf-pr-001', 'fetf-2026-productivity', 'FETF-PR-001', 'Direct drill', 'No-till direct drill', 'Min 3m width', 28000, 'per item', 'precision', 8, 'GB']
+    ['isde-wp-lw-01', 'isde', 'ISDE-WP-LW', 'Warmtepomp lucht-water (basis)', 'Lucht-water warmtepomp', 'SCOP >= 3.8', 1500, 'per woning', 'warmtepomp', null, 'NL']
   );
   db.run(
     `INSERT INTO grant_items (id, grant_id, item_code, name, description, specification, grant_value, grant_unit, category, score, jurisdiction)
      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-    ['fetf-pr-003', 'fetf-2026-productivity', 'FETF-PR-003', 'GPS guidance system', 'RTK GPS auto-steer', 'RTK sub-inch', 8000, 'per item', 'precision', 9, 'GB']
+    ['isde-wp-lw-02', 'isde', 'ISDE-WP-LW-PLUS', 'Warmtepomp lucht-water (hoog vermogen)', 'Lucht-water warmtepomp hoog vermogen', 'SCOP >= 3.8, > 10 kW', 3150, 'per woning', 'warmtepomp', null, 'NL']
   );
   db.run(
     `INSERT INTO grant_items (id, grant_id, item_code, name, description, specification, grant_value, grant_unit, category, score, jurisdiction)
      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-    ['fetf-pr-005', 'fetf-2026-productivity', 'FETF-PR-005', 'Robotic mower', 'Autonomous robotic mower', 'GPS-guided', 25000, 'per item', 'robotics', 7, 'GB']
+    ['isde-iso-dak', 'isde', 'ISDE-ISO-DAK', 'Dakisolatie', 'Isolatie van het dak', 'Rd >= 3.5', 4, 'per m2', 'isolatie', null, 'NL']
   );
   db.run(
     `INSERT INTO grant_items (id, grant_id, item_code, name, description, specification, grant_value, grant_unit, category, score, jurisdiction)
      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-    ['ewco-001', 'ewco', 'EWCO-001', 'Standard creation payment - broadleaf', 'Broadleaf creation', 'Min 1 ha', 8500, 'per ha', 'creation', null, 'GB']
-  );
-  db.run(
-    `INSERT INTO grant_items (id, grant_id, item_code, name, description, specification, grant_value, grant_unit, category, score, jurisdiction)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-    ['ewco-003', 'ewco', 'EWCO-003', 'Maintenance payment (years 1-10)', 'Annual maintenance', 'Payable annually', 300, 'per ha/year', 'maintenance', null, 'GB']
+    ['jola-inv', 'jola', 'JOLA-INV', 'Investeringssubsidie jonge landbouwer', 'Subsidie voor duurzame investeringen', 'Max 20.000 EUR, 30% subsidie', 6000, 'per aanvraag', 'bedrijfsovername', null, 'NL']
   );
 
   // Stacking rules
   db.run(
     `INSERT INTO stacking_rules (grant_a, grant_b, compatible, conditions, jurisdiction)
      VALUES (?, ?, ?, ?, ?)`,
-    ['fetf-2026-productivity', 'capital-grants-2026', 0, 'Cannot fund same items.', 'GB']
+    ['isde', 'sde-plus-plus', 0, 'Niet combineerbaar voor dezelfde installatie.', 'NL']
   );
   db.run(
     `INSERT INTO stacking_rules (grant_a, grant_b, compatible, conditions, jurisdiction)
      VALUES (?, ?, ?, ?, ?)`,
-    ['fetf-2026-productivity', 'fetf-2026-slurry', 1, 'Different FETF themes can be combined, capped at £50,000 total.', 'GB']
+    ['jola', 'isde', 1, 'Combineerbaar. Verschillende subsidiedoelen.', 'NL']
   );
   db.run(
     `INSERT INTO stacking_rules (grant_a, grant_b, compatible, conditions, jurisdiction)
      VALUES (?, ?, ?, ?, ?)`,
-    ['ewco', 'fetf-2026-productivity', 1, 'Compatible. Different purposes.', 'GB']
+    ['stoppersregeling', 'jola', 0, 'Niet combineerbaar. Stoppersregeling vereist bedrijfsbeeindiging.', 'NL']
   );
 
   // Application guidance
   db.run(
     `INSERT INTO application_guidance (grant_id, step_order, description, evidence_required, portal, jurisdiction)
      VALUES (?, ?, ?, ?, ?, ?)`,
-    ['fetf-2026-productivity', 1, 'Register on Rural Payments service.', 'SBI number', 'https://www.ruralpayments.service.gov.uk/', 'GB']
+    ['isde', 1, 'Koop en installeer de maatregel door een erkend installateur.', 'Factuur, bewijs van installatie', null, 'NL']
   );
   db.run(
     `INSERT INTO application_guidance (grant_id, step_order, description, evidence_required, portal, jurisdiction)
      VALUES (?, ?, ?, ?, ?, ?)`,
-    ['fetf-2026-productivity', 2, 'Check eligible items list.', null, 'https://www.gov.uk/', 'GB']
+    ['isde', 2, 'Log in op mijn.rvo.nl en vul het ISDE-aanvraagformulier in.', 'eHerkenning of DigiD', 'https://mijn.rvo.nl/isde', 'NL']
   );
 
   // FTS5 search index
   db.run(
     `INSERT INTO search_index (title, body, grant_type, jurisdiction) VALUES (?, ?, ?, ?)`,
-    ['FETF 2026 - Productivity', 'Farming Equipment and Technology Fund 2026 Productivity theme. Capital grants for precision farming equipment.', 'capital', 'GB']
+    ['ISDE (Investeringssubsidie Duurzame Energie en Energiebesparing)', 'Subsidie voor warmtepompen, zonneboilers en isolatie. Doorlopend aanvragen via mijn.rvo.nl.', 'capital', 'NL']
   );
   db.run(
     `INSERT INTO search_index (title, body, grant_type, jurisdiction) VALUES (?, ?, ?, ?)`,
-    ['Direct drill -- FETF 2026 - Productivity', 'No-till direct drill for establishing crops. Grant value £28,000. Category: precision.', 'capital', 'GB']
+    ['Warmtepomp lucht-water -- ISDE', 'Lucht-water warmtepomp voor ruimteverwarming. SCOP >= 3.8. Subsidie 1.500-3.150 EUR.', 'capital', 'NL']
   );
   db.run(
     `INSERT INTO search_index (title, body, grant_type, jurisdiction) VALUES (?, ?, ?, ?)`,
-    ['GPS guidance system -- FETF 2026 - Productivity', 'RTK GPS auto-steer system for tractors. Grant value £8,000. Category: precision.', 'capital', 'GB']
+    ['Dakisolatie -- ISDE', 'Isolatie van het dak of zoldervloer. Rd >= 3.5. Subsidie 4 EUR per m2.', 'capital', 'NL']
   );
   db.run(
     `INSERT INTO search_index (title, body, grant_type, jurisdiction) VALUES (?, ?, ?, ?)`,
-    ['England Woodland Creation Offer', 'Woodland creation payments per hectare, broadleaf and conifer.', 'revenue+capital', 'GB']
+    ['SDE++ (Stimulering Duurzame Energieproductie)', 'Exploitatiesubsidie hernieuwbare energie: zon-PV, wind, biomassa, geothermie.', 'revenue', 'NL']
   );
   db.run(
     `INSERT INTO search_index (title, body, grant_type, jurisdiction) VALUES (?, ?, ?, ?)`,
-    ['FETF 2026 - Slurry', 'FETF slurry theme. Trailing shoe applicator, slurry store cover, separation equipment.', 'capital', 'GB']
+    ['Stoppersregeling (Lbv / Lbv-plus)', 'Uitkoopregeling piekbelasters nabij Natura 2000 stikstof.', 'buyout', 'NL']
   );
 
   // Metadata

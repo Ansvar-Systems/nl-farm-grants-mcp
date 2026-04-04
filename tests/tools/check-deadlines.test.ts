@@ -26,7 +26,7 @@ describe('check_deadlines tool', () => {
 
   test('includes rolling grants', () => {
     const result = handleCheckDeadlines(db, {}) as { deadlines: { id: string; urgency: string }[] };
-    const rolling = result.deadlines.find(d => d.id === 'ewco');
+    const rolling = result.deadlines.find(d => d.id === 'isde');
     expect(rolling).toBeDefined();
     expect(rolling!.urgency).toContain('no deadline');
   });

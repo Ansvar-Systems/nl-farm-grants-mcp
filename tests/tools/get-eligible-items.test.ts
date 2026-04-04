@@ -18,14 +18,14 @@ describe('get_eligible_items tool', () => {
     if (existsSync(TEST_DB)) unlinkSync(TEST_DB);
   });
 
-  test('returns items for FETF productivity', () => {
-    const result = handleGetEligibleItems(db, { grant_id: 'fetf-2026-productivity' });
+  test('returns items for ISDE', () => {
+    const result = handleGetEligibleItems(db, { grant_id: 'isde' });
     expect(result).toHaveProperty('total_items');
     expect((result as { total_items: number }).total_items).toBe(3);
   });
 
   test('filters by category', () => {
-    const result = handleGetEligibleItems(db, { grant_id: 'fetf-2026-productivity', category: 'precision' });
+    const result = handleGetEligibleItems(db, { grant_id: 'isde', category: 'warmtepomp' });
     expect((result as { total_items: number }).total_items).toBe(2);
   });
 
@@ -34,13 +34,13 @@ describe('get_eligible_items tool', () => {
     expect(result).toHaveProperty('error', 'grant_not_found');
   });
 
-  test('includes grant cap in response', () => {
-    const result = handleGetEligibleItems(db, { grant_id: 'fetf-2026-productivity' });
-    expect((result as { max_grant_value: number }).max_grant_value).toBe(50000);
+  test('returns null max_grant_value for uncapped grants', () => {
+    const result = handleGetEligibleItems(db, { grant_id: 'isde' });
+    expect((result as { max_grant_value: number | null }).max_grant_value).toBeNull();
   });
 
   test('rejects unsupported jurisdiction', () => {
-    const result = handleGetEligibleItems(db, { grant_id: 'fetf-2026-productivity', jurisdiction: 'SE' });
+    const result = handleGetEligibleItems(db, { grant_id: 'isde', jurisdiction: 'SE' });
     expect(result).toHaveProperty('error', 'jurisdiction_not_supported');
   });
 });

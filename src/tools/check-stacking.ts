@@ -79,7 +79,7 @@ export function handleCheckStacking(db: Database, args: StackingArgs) {
           grant_a: a,
           grant_b: b,
           compatible: true,
-          conditions: 'No specific stacking rule found for this combination. Check GOV.UK for current rules.',
+          conditions: 'Geen specifieke stapelingsregel gevonden voor deze combinatie. Controleer rvo.nl voor actuele voorwaarden.',
         });
       }
     }
@@ -91,7 +91,7 @@ export function handleCheckStacking(db: Database, args: StackingArgs) {
     pairs_checked: pairs.length,
     all_compatible: allCompatible,
     results: pairs,
-    note: 'Stacking rules are based on published DEFRA guidance and may change between grant rounds. Verify with RPA before applying.',
+    note: 'Stapelingsregels zijn gebaseerd op gepubliceerde RVO-richtlijnen en kunnen wijzigen per subsidieronde. Controleer bij RVO voor actuele voorwaarden.',
     _meta: buildMeta(),
   };
 }

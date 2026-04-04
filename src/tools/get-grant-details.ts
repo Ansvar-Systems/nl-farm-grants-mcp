@@ -47,6 +47,6 @@ export function handleGetGrantDetails(db: Database, args: GrantDetailsArgs) {
     match_funding_note: grant.match_funding_pct > 0
       ? `You must provide ${grant.match_funding_pct}% match funding. The grant covers ${100 - grant.match_funding_pct}% of eligible costs.`
       : 'Fully funded -- no match funding required.',
-    _meta: buildMeta({ source_url: 'https://www.gov.uk/guidance/funding-for-farmers' }),
+    _meta: buildMeta({ source_url: 'https://www.rvo.nl/subsidies-financiering' }),
   };
 }

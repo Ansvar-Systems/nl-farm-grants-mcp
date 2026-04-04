@@ -2,37 +2,44 @@
 
 ## What Is Included
 
-- **FETF 2026** -- Productivity (123 items), Slurry (35 items), and Animal Health (140 items) themes with eligible items, grant values, specifications, and scoring. Includes all official RPA-published items from GOV.UK Annex 3 and Annex 4.
-- **Farming Transformation Fund Capital Grants** -- 14 large-scale capital investment grants with match-funding requirements (slurry stores, buildings, grain stores, AD plants)
-- **England Woodland Creation Offer (EWCO)** -- 17 options: per-hectare creation payments, maintenance, infrastructure (fencing, gates, tree guards), nature recovery, flood risk, water quality, natural colonisation
-- **Countryside Stewardship Higher Tier** -- 57 revenue payment options for environmental management (grassland, moorland, woodland, coastal, heathland, agroforestry, pollinators, birds, wetland, water quality, flood mitigation). Includes both legacy option codes (HK6, HS2, etc.) and new 2025/2026 codes (CGS22, CAB17, CWT14, etc.) with verified payment rates from GOV.UK.
-- **Tree Health Pilot** -- Grants for managing diseased woodland
-- **8 grant schemes, 386 eligible items, 23 stacking rules**
-- **Stacking rules** -- Which grants can and cannot be combined, with conditions
-- **Application guidance** -- Step-by-step process for each grant with evidence requirements and portal links
+- **ISDE** -- Investeringssubsidie Duurzame Energie en Energiebesparing: warmtepompen (lucht-water, bodem-water), zonneboilers, dakisolatie, vloerisolatie, gevelisolatie. 9 eligible items with grant values and specifications.
+- **SDE++** -- Stimulering Duurzame Energieproductie en Klimaattransitie: exploitatiesubsidie voor zon-PV, wind, biomassa, geothermie, aquathermie, waterstof, CCS. Tender-based.
+- **JOLA** -- Subsidie Jonge Landbouwers: max 20.000 EUR investering, 30% subsidie, voor landbouwers onder 41 jaar met recente bedrijfsovername.
+- **MIT** -- MKB Innovatiestimulering Topsectoren: haalbaarheidsstudies (max 20.000 EUR) en R&D-samenwerkingsprojecten (max 200.000 EUR per deelnemer). 2 items.
+- **WBSO** -- Fiscaal voordeel voor R&D (speur- en ontwikkelingswerk), relevant voor precisielandbouw en agrarische innovatie.
+- **Regeling Groenprojecten** -- Groene lening met rentevoordeel voor duurzame investeringen.
+- **Stoppersregeling (Lbv/Lbv-plus)** -- Uitkoopregeling piekbelasters nabij Natura 2000-gebieden.
+- **MGO** -- Maatregel Gerichte Opkoop Veehouderijen: 100% marktwaarde + 3% opslag, provinciale uitvoering.
+- **Sbv** -- Subsidiemodules Brongerichte Verduurzaming Stal: innovatieve stalsystemen, max 40% subsidie.
+- **Borgstellingsfonds (BL/BL-C)** -- Overheidsgarantie voor bankleningen tot 2,8 mln EUR.
+- **10 grant schemes, 13 eligible items, 10 stacking rules, 19 application guidance steps**
+- **Stacking rules** -- Which grants can and cannot be combined, with conditions (in Dutch)
+- **Application guidance** -- Step-by-step process for ISDE, SDE++, JOLA, Stoppersregeling, and Borgstellingsfonds
 - **Deadline tracking** -- Open, upcoming, and rolling grant windows with days remaining
 
 ## Jurisdictions
 
 | Code | Country | Status |
 |------|---------|--------|
-| GB | Great Britain (England focus) | Supported |
+| NL | Netherlands | Supported |
 
 ## What Is NOT Included
 
-- **SFI (Sustainable Farming Incentive)** -- Separate scheme, planned for future version
-- **BPS (Basic Payment Scheme)** -- Being phased out, not covered
-- **Scotland, Wales, Northern Ireland** -- Devolved agriculture policy, different grant schemes
-- **Historic closed rounds** -- Only FTF Water included for stacking reference
-- **Full Countryside Stewardship options list** -- 57 Higher Tier options covered (most common revenue and capital items); some specialist options not yet included
-- **Real-time application status** -- This is reference data, not connected to the Rural Payments portal
+- **GLB / Eco-regeling** -- Common Agricultural Policy direct payments and eco-schemes (separate system via RVO)
+- **ANLb (Agrarisch Natuur- en Landschapsbeheer)** -- Collectief beheer, separate from individual grants
+- **Provinciale subsidies** -- Each province has additional grant schemes not covered here
+- **Waterschapssubsidies** -- Water board grants for agricultural water management
+- **EU-fondsen** -- Direct EU funding (Horizon Europe, LIFE) not covered
+- **Historische gesloten regelingen** -- Only currently open or upcoming schemes included
+- **Real-time aanvraagstatus** -- This is reference data, not connected to mijn.rvo.nl
 
 ## Known Gaps
 
-1. FETF item lists may be updated by RPA between rounds -- check GOV.UK for the latest
-2. Capital Grants 2026 opening date is estimated (July 2026) -- not yet confirmed by DEFRA
-3. EWCO payment rates may be updated annually by the Forestry Commission
-4. Stacking rules are based on current published guidance and may change between grant rounds
+1. ISDE bedragen worden jaarlijks aangepast door RVO -- controleer rvo.nl voor actuele tarieven
+2. SDE++ openstellingsdata en fasebedragen worden jaarlijks vastgesteld
+3. JOLA-openstelling en puntensysteem kunnen per jaar wijzigen
+4. Stoppersregeling voorwaarden zijn onderhevig aan politieke besluitvorming (stikstofbeleid)
+5. Provinciale toeslagen en aanvullende regelingen zijn niet opgenomen
 
 ## Data Freshness
 

@@ -4,13 +4,13 @@
 [![GHCR](https://github.com/Ansvar-Systems/nl-farm-grants-mcp/actions/workflows/ghcr-build.yml/badge.svg)](https://github.com/Ansvar-Systems/nl-farm-grants-mcp/actions/workflows/ghcr-build.yml)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-UK farm grants and capital funding via the [Model Context Protocol](https://modelcontextprotocol.io). Query FETF 2026, Capital Grants, EWCO, Countryside Stewardship -- deadlines, eligible items, stacking rules, and application guidance -- all from your AI assistant.
+Dutch agricultural grants and subsidies via the [Model Context Protocol](https://modelcontextprotocol.io). Query ISDE, SDE++, JOLA, MIT, WBSO, Stoppersregeling, Borgstellingsfonds -- deadlines, eligible items, stacking rules, and application guidance -- all from your AI assistant.
 
 Part of [Ansvar Open Agriculture](https://ansvar.eu/open-agriculture).
 
 ## Why This Exists
 
-UK farmers leave millions in grant funding unclaimed every year because the information is scattered across dozens of GOV.UK pages, PDFs, and portals. This MCP server puts it all in one place, queryable by AI. Ask about deadlines, check what equipment qualifies, find out which grants can be combined, and estimate your funding before you apply.
+Dutch farmers and agricultural businesses miss available funding because subsidy information is spread across RVO.nl, Rijksoverheid.nl, provincial portals, and PDF publications. This MCP server puts it all in one place, queryable by AI. Ask about deadlines, check which equipment qualifies for ISDE, find out which grants can be combined, and estimate your funding before you apply.
 
 ## Quick Start
 
@@ -21,7 +21,7 @@ Add to `claude_desktop_config.json`:
 ```json
 {
   "mcpServers": {
-    "uk-farm-grants": {
+    "nl-farm-grants": {
       "command": "npx",
       "args": ["-y", "@ansvar/nl-farm-grants-mcp"]
     }
@@ -32,7 +32,7 @@ Add to `claude_desktop_config.json`:
 ### Claude Code
 
 ```bash
-claude mcp add uk-farm-grants npx @ansvar/nl-farm-grants-mcp
+claude mcp add nl-farm-grants npx @ansvar/nl-farm-grants-mcp
 ```
 
 ### Streamable HTTP (remote)
@@ -57,23 +57,25 @@ npx @ansvar/nl-farm-grants-mcp
 
 Ask your AI assistant:
 
-- "What FETF grants are open right now?"
-- "Show me eligible items for FETF 2026 productivity"
-- "Can I combine FETF with Countryside Stewardship?"
-- "What's the deadline for FETF 2026?"
-- "Estimate the grant value if I buy a direct drill and GPS guidance"
-- "How do I apply for EWCO woodland creation?"
-- "What grants are available for slurry management?"
+- "Welke subsidies zijn er voor warmtepompen?"
+- "Kan ik ISDE combineren met SDE++?"
+- "Wat zijn de voorwaarden voor de Subsidie Jonge Landbouwers?"
+- "Hoe vraag ik ISDE aan?"
+- "Welke stoppersregelingen zijn er voor veehouderijen nabij Natura 2000?"
+- "Wat is het maximale borgstellingsbedrag voor agrarische leningen?"
+- "Welke innovatiesubsidies zijn er voor precisielandbouw?"
 
 ## Stats
 
 | Metric | Value |
 |--------|-------|
 | Tools | 10 (3 meta + 7 domain) |
-| Jurisdiction | GB |
-| Grants covered | FETF 2026 (3 themes), Capital Grants, EWCO, CS Higher Tier, Tree Health Pilot |
-| Data sources | DEFRA, RPA, Forestry Commission, Natural England |
-| License (data) | Open Government Licence v3 |
+| Jurisdiction | NL |
+| Grants covered | ISDE, SDE++, JOLA, MIT, WBSO, Regeling Groenprojecten, Stoppersregeling, MGO, Sbv, Borgstellingsfonds |
+| Grant items | 13 eligible items (ISDE warmtepompen, zonneboilers, isolatie; MIT; JOLA; Borgstellingsfonds) |
+| Stacking rules | 10 combination rules |
+| Data sources | RVO, Ministerie van LNV, Rijksoverheid.nl |
+| License (data) | Rijksoverheid - publieke informatie |
 | License (code) | Apache-2.0 |
 | Transport | stdio + Streamable HTTP |
 
@@ -107,7 +109,7 @@ See [SECURITY.md](SECURITY.md) for reporting policy.
 
 ## Disclaimer
 
-This tool provides reference data for informational purposes only. It is not professional financial or agricultural advice. Grant details change -- always verify on GOV.UK before applying. See [DISCLAIMER.md](DISCLAIMER.md).
+This tool provides reference data for informational purposes only. It is not professional financial or agricultural advice. Grant details change -- always verify on rvo.nl before applying. See [DISCLAIMER.md](DISCLAIMER.md).
 
 ## Contributing
 
@@ -115,4 +117,4 @@ Issues and pull requests welcome. For security vulnerabilities, email security@a
 
 ## License
 
-Apache-2.0. Data sourced under Open Government Licence v3.
+Apache-2.0. Data sourced from Rijksoverheid (public information).

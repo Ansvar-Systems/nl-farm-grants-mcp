@@ -5,16 +5,15 @@ export function handleAbout() {
   return {
     name: 'Netherlands Farm Grants MCP',
     description:
-      'UK farm grants and capital funding made queryable by AI. Covers FETF 2026, Capital Grants, ' +
-      'EWCO, Countryside Stewardship, deadlines, eligible items, and stacking rules. Data sourced ' +
-      'from DEFRA, RPA, Forestry Commission, and Natural England.',
+      'Dutch agricultural grants and subsidies made queryable by AI. Covers ISDE, SDE++, JOLA, ' +
+      'MIT, WBSO, Sbv, Stoppersregeling, Borgstellingsfonds, and more. Data sourced from RVO ' +
+      '(Rijksdienst voor Ondernemend Nederland) and Ministerie van LNV.',
     version: '0.1.0',
     jurisdiction: [...SUPPORTED_JURISDICTIONS],
     data_sources: [
-      'DEFRA Farming and Countryside Programme',
-      'RPA FETF Grant Guidance',
-      'Forestry Commission EWCO',
-      'Natural England Countryside Stewardship',
+      'RVO Subsidiewijzer',
+      'Ministerie van LNV',
+      'Rijksoverheid.nl',
     ],
     tools_count: 10,
     links: {

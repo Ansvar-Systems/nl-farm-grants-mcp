@@ -18,44 +18,41 @@ describe('estimate_grant_value tool', () => {
     if (existsSync(TEST_DB)) unlinkSync(TEST_DB);
   });
 
-  test('calculates total for selected items', () => {
+  test('calculates total for selected ISDE items', () => {
     const result = handleEstimateGrantValue(db, {
-      grant_id: 'fetf-2026-productivity',
-      items: ['FETF-PR-001', 'FETF-PR-003'],
+      grant_id: 'isde',
+      items: ['ISDE-WP-LW', 'ISDE-WP-LW-PLUS'],
     });
-    // 28000 + 8000 = 36000
-    expect((result as { grant_value: number }).grant_value).toBe(36000);
+    // 1500 + 3150 = 4650
+    expect((result as { grant_value: number }).grant_value).toBe(4650);
     expect((result as { items_selected: number }).items_selected).toBe(2);
     expect((result as { match_funding_required: number }).match_funding_required).toBe(0);
   });
 
-  test('applies grant cap when exceeded', () => {
-    // All 3 items: 28000 + 8000 + 25000 = 61000, cap is 50000
+  test('calculates all items when none specified', () => {
     const result = handleEstimateGrantValue(db, {
-      grant_id: 'fetf-2026-productivity',
+      grant_id: 'isde',
     });
-    expect((result as { subtotal: number }).subtotal).toBe(61000);
-    expect((result as { grant_value: number }).grant_value).toBe(50000);
-    expect((result as { capped: boolean }).capped).toBe(true);
+    // 1500 + 3150 + 4 = 4654 (no cap on ISDE)
+    expect((result as { subtotal: number }).subtotal).toBe(4654);
+    expect((result as { capped: boolean }).capped).toBe(false);
   });
 
-  test('calculates match funding for capital grants', () => {
+  test('applies grant cap for JOLA', () => {
     const result = handleEstimateGrantValue(db, {
-      grant_id: 'capital-grants-2026',
+      grant_id: 'jola',
     });
-    // Capital grants: 60% match funding (40% grant)
-    // No items seeded for capital-grants-2026, so value is 0
-    expect((result as { match_funding_pct: number }).match_funding_pct).toBe(60);
+    // JOLA: 6000 value, cap 6000, match_funding_pct 70
+    expect((result as { grant_value: number }).grant_value).toBe(6000);
+    expect((result as { match_funding_pct: number }).match_funding_pct).toBe(70);
   });
 
-  test('calculates per-hectare items with area', () => {
+  test('returns EUR currency', () => {
     const result = handleEstimateGrantValue(db, {
-      grant_id: 'ewco',
-      items: ['EWCO-001'],
-      area_ha: 10,
+      grant_id: 'isde',
+      items: ['ISDE-WP-LW'],
     });
-    // 8500/ha * 10 ha = 85000
-    expect((result as { grant_value: number }).grant_value).toBe(85000);
+    expect((result as { currency: string }).currency).toBe('EUR');
   });
 
   test('returns error for unknown grant', () => {
@@ -64,7 +61,7 @@ describe('estimate_grant_value tool', () => {
   });
 
   test('rejects unsupported jurisdiction', () => {
-    const result = handleEstimateGrantValue(db, { grant_id: 'fetf-2026-productivity', jurisdiction: 'NL' });
+    const result = handleEstimateGrantValue(db, { grant_id: 'isde', jurisdiction: 'GB' });
     expect(result).toHaveProperty('error', 'jurisdiction_not_supported');
   });
 });
