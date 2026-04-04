@@ -1,0 +1,16 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.Ansvar-Systems/uk-farm-grants",
+  "description": "UK farm grants \u2014 FETF items, Capital Grants, deadlines, stacking rules",
+  "repository": {
+    "url": "https://github.com/Ansvar-Systems/uk-farm-grants-mcp",
+    "source": "github"
+  },
+  "version": "0.1.0",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.ansvar.eu/uk-farm-grants/mcp"
+    }
+  ]
+}
