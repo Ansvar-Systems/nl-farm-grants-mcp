@@ -1,4 +1,5 @@
 import { buildMeta } from '../metadata.js';
+import { buildCitation } from '../citation.js';
 import { validateJurisdiction } from '../jurisdiction.js';
 import type { Database } from '../db.js';
 
@@ -49,5 +50,11 @@ export function handleGetApplicationProcess(db: Database, args: ApplicationProce
       portal: s.portal,
     })),
     _meta: buildMeta(),
+    _citation: buildCitation(
+      `NL Grant Application — ${grant.name || args.grant_id}`,
+      `Dutch grant application process for ${grant.name || args.grant_id}`,
+      'get_application_process',
+      { grant_id: args.grant_id },
+    ),
   };
 }
