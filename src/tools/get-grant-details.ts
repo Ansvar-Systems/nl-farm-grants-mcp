@@ -1,4 +1,5 @@
 import { buildMeta } from '../metadata.js';
+import { buildCitation } from '../citation.js';
 import { validateJurisdiction } from '../jurisdiction.js';
 import type { Database } from '../db.js';
 
@@ -48,5 +49,11 @@ export function handleGetGrantDetails(db: Database, args: GrantDetailsArgs) {
       ? `You must provide ${grant.match_funding_pct}% match funding. The grant covers ${100 - grant.match_funding_pct}% of eligible costs.`
       : 'Fully funded -- no match funding required.',
     _meta: buildMeta({ source_url: 'https://www.rvo.nl/subsidies-financiering' }),
+    _citation: buildCitation(
+      `NL Grant — ${grant.name || args.grant_id}`,
+      `Dutch grant details for ${grant.name || args.grant_id}`,
+      'get_grant_details',
+      { grant_id: args.grant_id },
+    ),
   };
 }

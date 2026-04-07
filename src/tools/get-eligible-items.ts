@@ -1,4 +1,5 @@
 import { buildMeta } from '../metadata.js';
+import { buildCitation } from '../citation.js';
 import { validateJurisdiction } from '../jurisdiction.js';
 import type { Database } from '../db.js';
 
@@ -66,5 +67,11 @@ export function handleGetEligibleItems(db: Database, args: EligibleItemsArgs) {
     categories: Object.keys(categories).length,
     items_by_category: categories,
     _meta: buildMeta(),
+    _citation: buildCitation(
+      `NL Grant Items — ${grant.name || args.grant_id}`,
+      `Dutch eligible items for grant ${grant.name || args.grant_id}`,
+      'get_eligible_items',
+      { grant_id: args.grant_id, ...(args.category ? { category: args.category } : {}) },
+    ),
   };
 }
